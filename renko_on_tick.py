@@ -2,7 +2,7 @@ import numpy as np
 from numba import njit
 
 @njit
-def renko_numba(tick_prices: np.ndarray, brick_size: float) -> np.ndarray:
+def renko_numba(tick_prices: np.ndarray, brick_size: float) -> list:
     
     renko_data = []
     last_brick_close = tick_prices[0]
@@ -27,4 +27,4 @@ def renko_numba(tick_prices: np.ndarray, brick_size: float) -> np.ndarray:
             
             last_brick_close = close_price
     
-    return np.array(renko_data)
+    return renko_data
